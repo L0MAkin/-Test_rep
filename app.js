@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const usersRoute = require('./routes/users');
-const http = require('http');
-const hostname = 'lomakin-app.herokuapp.com';
 
 
 require('dotenv').config();
@@ -20,8 +18,8 @@ app.use((err, req, res, next) => {
     }
 });
 // we will eventually use env variables
-const PORT = process.env.PORT;
-app.listen(PORT, hostname,   () => {
+const PORT = process.env.PORT || 8083;
+app.listen(PORT,   () => {
   console.log('(`Server running at http://${hostname}:${port}/`)');
 });
 
